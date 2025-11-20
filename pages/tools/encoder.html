@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoder / Decoder | Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+        <a href="../tools.html" class="text-gray-500 hover:text-white mb-8 inline-block font-mono"><i
+                class="fas fa-arrow-left mr-2"></i>Back to Tools</a>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 shadow-2xl">
+            <h1 class="text-2xl font-bold text-white font-mono mb-6 flex items-center">
+                <i class="fas fa-code text-yellow-400 mr-3"></i>Encoder / Decoder
+            </h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Input -->
+                <div>
+                    <label class="block text-sm font-mono text-yellow-400 mb-2">Input</label>
+                    <textarea id="input-text" rows="10"
+                        class="w-full bg-black border border-gray-700 rounded-lg p-4 text-white font-mono focus:border-yellow-500 focus:outline-none transition-colors"
+                        placeholder="Paste text here..."></textarea>
+                </div>
+
+                <!-- Output -->
+                <div>
+                    <label class="block text-sm font-mono text-yellow-400 mb-2">Output</label>
+                    <textarea id="output-text" rows="10" readonly
+                        class="w-full bg-black/50 border border-gray-800 rounded-lg p-4 text-gray-300 font-mono focus:outline-none"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+                <button onclick="process('base64_enc')"
+                    class="px-4 py-2 bg-gray-800 hover:bg-yellow-500 hover:text-black text-white rounded font-mono transition-colors">Base64
+                    Encode</button>
+                <button onclick="process('base64_dec')"
+                    class="px-4 py-2 bg-gray-800 hover:bg-yellow-500 hover:text-black text-white rounded font-mono transition-colors">Base64
+                    Decode</button>
+                <div class="w-px bg-gray-700 mx-2"></div>
+                <button onclick="process('url_enc')"
+                    class="px-4 py-2 bg-gray-800 hover:bg-yellow-500 hover:text-black text-white rounded font-mono transition-colors">URL
+                    Encode</button>
+                <button onclick="process('url_dec')"
+                    class="px-4 py-2 bg-gray-800 hover:bg-yellow-500 hover:text-black text-white rounded font-mono transition-colors">URL
+                    Decode</button>
+                <div class="w-px bg-gray-700 mx-2"></div>
+                <button onclick="process('rot13')"
+                    class="px-4 py-2 bg-gray-800 hover:bg-yellow-500 hover:text-black text-white rounded font-mono transition-colors">ROT13</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        const input = document.getElementById('input-text');
+        const output = document.getElementById('output-text');
+
+        function process(action) {
+            const val = input.value;
+            try {
+                switch (action) {
+                    case 'base64_enc':
+                        output.value = btoa(val);
+                        break;
+                    case 'base64_dec':
+                        output.value = atob(val);
+                        break;
+                    case 'url_enc':
+                        output.value = encodeURIComponent(val);
+                        break;
+                    case 'url_dec':
+                        output.value = decodeURIComponent(val);
+                        break;
+                    case 'rot13':
+                        output.value = val.replace(/[a-zA-Z]/g, function (c) {
+                            return String.fromCharCode((c <= "Z" ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26);
+                        });
+                        break;
+                }
+            } catch (e) {
+                output.value = "Error: Invalid input for this operation.";
+            }
+        }
+    </script>
+</body>
+
+</html>

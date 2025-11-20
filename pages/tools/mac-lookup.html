@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC Lookup | Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-3xl">
+        <a href="../tools.html" class="text-gray-500 hover:text-white mb-8 inline-block font-mono"><i
+                class="fas fa-arrow-left mr-2"></i>Back to Tools</a>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 shadow-2xl">
+            <h1 class="text-2xl font-bold text-white font-mono mb-6 flex items-center">
+                <i class="fas fa-search text-pink-500 mr-3"></i>MAC Address Lookup
+            </h1>
+            <p class="text-gray-400 mb-6 text-sm">Identify the manufacturer (OUI) of a network device. (Mock Database)
+            </p>
+
+            <div class="mb-6">
+                <label class="block text-xs font-mono text-gray-500 mb-2">MAC Address (XX:XX:XX:XX:XX:XX)</label>
+                <div class="flex gap-4">
+                    <input type="text" id="mac-input" placeholder="00:1A:2B:3C:4D:5E"
+                        class="flex-1 bg-black border border-gray-700 rounded-lg p-3 text-white font-mono focus:border-pink-500 focus:outline-none">
+                    <button onclick="lookupMAC()"
+                        class="bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <div id="result-area" class="hidden bg-black/50 p-6 rounded-lg border border-gray-800">
+                <div class="grid grid-cols-2 gap-4 text-sm font-mono">
+                    <div>
+                        <p class="text-gray-500">Vendor / Manufacturer</p>
+                        <p id="vendor-res" class="text-white text-lg font-bold">Apple, Inc.</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500">MAC Prefix</p>
+                        <p id="prefix-res" class="text-pink-400">00:1A:2B</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Mock Database of common OUIs
+        const ouiDB = {
+            '00:00:0C': 'Cisco Systems, Inc',
+            '00:0C:29': 'VMware, Inc',
+            '00:1A:2B': 'Ayecom Technology Co., Ltd.', // Just an example
+            '00:50:56': 'VMware, Inc',
+            '00:1C:42': 'Parallels, Inc.',
+            '00:03:FF': 'Microsoft Corporation',
+            'B8:27:EB': 'Raspberry Pi Foundation',
+            'DC:A6:32': 'Raspberry Pi Trading Ltd',
+            '00:14:22': 'Dell Inc.',
+            '00:16:3E': 'Xensource, Inc.',
+            '08:00:27': 'PCS Systemtechnik GmbH (VirtualBox)',
+            'AC:DE:48': 'Private',
+            'FF:FF:FF': 'Broadcast',
+        };
+
+        function lookupMAC() {
+            const input = document.getElementById('mac-input').value.trim().toUpperCase();
+            const cleanMac = input.replace(/[^0-9A-F]/g, '');
+
+            if (cleanMac.length < 6) {
+                alert("Invalid MAC Address");
+                return;
+            }
+
+            // Format as XX:XX:XX
+            const prefix = cleanMac.substring(0, 6).match(/.{1,2}/g).join(':');
+
+            // Simple mock lookup logic
+            let vendor = ouiDB[prefix] || "Unknown Vendor / Not in Database";
+
+            // Randomize for demo if not found but valid format
+            if (vendor.startsWith("Unknown") && cleanMac.length === 12) {
+                const randomVendors = ['Intel Corporate', 'Hewlett Packard', 'Apple, Inc.', 'Google, Inc.'];
+                vendor = randomVendors[Math.floor(Math.random() * randomVendors.length)] + " (Simulated)";
+            }
+
+            document.getElementById('vendor-res').innerText = vendor;
+            document.getElementById('prefix-res').innerText = prefix;
+            document.getElementById('result-area').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>

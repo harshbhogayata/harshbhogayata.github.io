@@ -1,0 +1,94 @@
+@import 'variables.css';
+
+/* Interactive Background Variables */
+:root {
+    --color-bg: #010409;
+    --color-grid: rgba(0, 255, 135, 0.05);
+    --color-glow-1: #00ff87;
+    --color-glow-2: #00c2ff;
+}
+
+/* Global Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-glow {
+    background-image: linear-gradient(90deg, var(--color-glow-1), var(--color-glow-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 255, 135, 0.3);
+}
+
+.card-glow {
+    background-color: rgba(16, 19, 28, 0.5);
+    border: 1px solid rgba(0, 255, 135, 0.1);
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.card-glow:hover {
+    border-color: rgba(0, 255, 135, 0.5);
+    box-shadow: 0 0 25px rgba(0, 255, 135, 0.15);
+    transform: translateY(-8px);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.2);
+    border-color: var(--accent-primary);
+}
+
+/* Interactive Background */
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 35px 35px;
+    animation: pan-grid 30s linear infinite;
+}
+
+#interactive-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(0, 255, 135, 0.15),
+            transparent 25vw);
+    transition: background 0.2s ease-out;
+}
+
+@keyframes pan-grid {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 35px 35px;
+    }
+}

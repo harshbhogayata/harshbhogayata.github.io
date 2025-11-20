@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Harsh Bhogayata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+        <div class="flex justify-between items-center mb-12 border-b border-gray-800 pb-6">
+            <h1 class="text-4xl font-bold text-white font-mono">
+                <span class="text-green-500">./</span>resume
+            </h1>
+            <a href="../assets/resume.pdf" download="Harsh_Bhogayata_Resume.pdf"
+                class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded flex items-center transition-colors">
+                <i class="fas fa-download mr-2"></i> PDF
+            </a>
+        </div>
+
+        <div class="bg-white text-black p-12 rounded-lg shadow-2xl print:shadow-none print:p-0" id="resume-content">
+            <!-- Header -->
+            <header class="border-b-2 border-gray-800 pb-8 mb-8 flex justify-between items-start">
+                <div>
+                    <h1 class="text-5xl font-bold uppercase tracking-wider mb-2">Harsh Bhogayata</h1>
+                    <p class="text-xl text-gray-600 font-mono">Cybersecurity Analyst & Developer</p>
+                </div>
+                <div class="text-right text-sm space-y-1">
+                    <div class="flex items-center justify-end gap-2">
+                        <span>harshmbhogayata@gmail.com</span>
+                        <i class="fas fa-envelope text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center justify-end gap-2">
+                        <span>linkedin.com/in/harshbhogayata</span>
+                        <i class="fab fa-linkedin text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center justify-end gap-2">
+                        <span>github.com/harshbhogayata</span>
+                        <i class="fab fa-github text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center justify-end gap-2">
+                        <span>Porbandar, India</span>
+                        <i class="fas fa-map-marker-alt text-gray-500"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Summary -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold uppercase border-b border-gray-300 mb-3 pb-1 tracking-wide">Professional
+                    Summary</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Aspiring Cybersecurity Analyst with a strong foundation in network defense, web application
+                    security, and digital forensics.
+                    Currently pursuing an MCA with a focus on offensive security. Proficient in building security tools
+                    using Python and JavaScript.
+                    Passionate about Red Teaming and securing digital infrastructure against evolving threats.
+                </p>
+            </section>
+
+            <!-- Education -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold uppercase border-b border-gray-300 mb-4 pb-1 tracking-wide">Education</h2>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-lg font-bold">Master of Computer Applications (MCA)</h3>
+                            <span class="text-sm text-gray-600 font-mono">2023 - Present</span>
+                        </div>
+                        <p class="font-semibold text-gray-700">Marwadi University</p>
+                        <p class="text-sm text-gray-600">Specialization in Cybersecurity & Network Administration</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-lg font-bold">Bachelor of Commerce (B.Com)</h3>
+                            <span class="text-sm text-gray-600 font-mono">2020 - 2023</span>
+                        </div>
+                        <p class="font-semibold text-gray-700">Saurashtra University</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold uppercase border-b border-gray-300 mb-4 pb-1 tracking-wide">Certifications
+                </h2>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-certificate text-green-600"></i>
+                        <span class="font-semibold">Google Cybersecurity Professional Certificate</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-hourglass-half text-yellow-600"></i>
+                        <span class="font-semibold text-gray-600">CompTIA Security+ (In Progress)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-certificate text-blue-600"></i>
+                        <span class="font-semibold">Introduction to Networks (Cisco)</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="mb-8">
+                <h2 class="text-lg font-bold uppercase border-b border-gray-300 mb-4 pb-1 tracking-wide">Technical
+                    Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-gray-500 mb-2 uppercase">Security Domains</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Network
+                                Security</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Web
+                                Pentesting</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Digital
+                                Forensics</span>
+                            <span
+                                class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Cryptography</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-gray-500 mb-2 uppercase">Tools & Technologies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Burp Suite</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Wireshark</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Nmap</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Metasploit</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Python</span>
+                            <span class="px-2 py-1 bg-gray-100 text-xs rounded border border-gray-200">Linux
+                                (Kali/Ubuntu)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section>
+                <h2 class="text-lg font-bold uppercase border-b border-gray-300 mb-4 pb-1 tracking-wide">Key Projects
+                </h2>
+
+                <div class="mb-4">
+                    <div class="flex justify-between items-baseline mb-1">
+                        <h3 class="font-bold">Cybersecurity Portfolio & Live Tools</h3>
+                        <a href="https://harshbhogayata.com"
+                            class="text-sm text-blue-600 hover:underline">harshbhogayata.com</a>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-1">
+                        Designed and developed a fully interactive "Cyber Dashboard" portfolio featuring client-side
+                        security tools.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                        <li>Implemented <strong>Password Entropy Analyzer</strong> using Information Theory concepts.
+                        </li>
+                        <li>Built a <strong>CIDR Subnet Calculator</strong> for network segmentation planning.</li>
+                        <li>Created a <strong>Steganography Lab</strong> for browser-based image forensics (LSB).</li>
+                        <li>Developed a <strong>SOC Log Analyzer</strong> to detect attack signatures (SQLi, XSS) in raw
+                            logs.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold">Network Traffic Monitor (Python)</h3>
+                    <p class="text-sm text-gray-700 mb-1">
+                        Developed a lightweight packet sniffer and analyzer using Python's Scapy library.
+                    </p>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+                        <li>Real-time detection of suspicious port scanning activities (SYN Scans).</li>
+                        <li>Automated alert generation for potential DoS attack patterns.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

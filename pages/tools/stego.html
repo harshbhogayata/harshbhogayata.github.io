@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steganography Tool | Harsh Bhogayata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300 font-sans antialiased">
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+
+        <!-- Header -->
+        <div class="flex items-center gap-4 mb-8 border-b border-green-500/20 pb-4">
+            <a href="../tools.html" class="text-green-500 hover:text-white transition-colors">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 class="text-3xl font-bold text-white font-mono">
+                <span class="text-cyan-400">./</span>stego_lab
+            </h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Encode Section -->
+            <div class="bg-gray-900/50 border border-green-500/20 p-6 rounded-xl backdrop-blur-sm">
+                <h2 class="text-xl font-bold text-white mb-4 font-mono flex items-center gap-2">
+                    <i class="fas fa-lock text-green-400"></i> Encode Message
+                </h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-500 mb-2">1. UPLOAD IMAGE</label>
+                        <input type="file" id="upload-encode" accept="image/*"
+                            class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-500/10 file:text-green-400 hover:file:bg-green-500/20 cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono text-gray-500 mb-2">2. SECRET MESSAGE</label>
+                        <textarea id="secret-message" rows="3"
+                            class="w-full bg-black/50 border border-gray-700 rounded p-3 text-white font-mono text-sm focus:border-green-500 focus:outline-none"
+                            placeholder="Enter secret text..."></textarea>
+                    </div>
+
+                    <button onclick="encode()"
+                        class="w-full py-3 bg-green-600 hover:bg-green-500 text-black font-bold rounded transition-colors font-mono">
+                        <i class="fas fa-file-export mr-2"></i>HIDE & DOWNLOAD
+                    </button>
+                </div>
+
+                <canvas id="canvas-encode" class="hidden"></canvas>
+            </div>
+
+            <!-- Decode Section -->
+            <div class="bg-gray-900/50 border border-cyan-500/20 p-6 rounded-xl backdrop-blur-sm">
+                <h2 class="text-xl font-bold text-white mb-4 font-mono flex items-center gap-2">
+                    <i class="fas fa-unlock text-cyan-400"></i> Decode Message
+                </h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-500 mb-2">1. UPLOAD ENCODED IMAGE</label>
+                        <input type="file" id="upload-decode" accept="image/*"
+                            class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-500/10 file:text-cyan-400 hover:file:bg-cyan-500/20 cursor-pointer">
+                    </div>
+
+                    <button onclick="decode()"
+                        class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded transition-colors font-mono">
+                        <i class="fas fa-search mr-2"></i>EXTRACT DATA
+                    </button>
+
+                    <div id="decoded-output" class="hidden p-4 bg-black/50 border border-gray-700 rounded">
+                        <label class="block text-xs font-mono text-gray-500 mb-2">HIDDEN MESSAGE:</label>
+                        <p id="decoded-text" class="text-green-400 font-mono break-all"></p>
+                    </div>
+                </div>
+
+                <canvas id="canvas-decode" class="hidden"></canvas>
+            </div>
+
+        </div>
+
+        <!-- Info Section -->
+        <div class="mt-8 bg-gray-900/30 border border-gray-800 p-6 rounded-xl">
+            <h3 class="text-lg font-bold text-white mb-2 font-mono">How it works (LSB Steganography)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                This tool uses <strong>Least Significant Bit (LSB)</strong> steganography. It modifies the last bit of
+                the Red, Green, and Blue values of each pixel to store the binary data of your message. Since the change
+                is so subtle (changing a color value by 1), the human eye cannot detect the difference in the image.
+            </p>
+        </div>
+
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Steganography Logic
+
+        function encode() {
+            const input = document.getElementById('upload-encode');
+            const message = document.getElementById('secret-message').value;
+            const canvas = document.getElementById('canvas-encode');
+            const ctx = canvas.getContext('2d');
+
+            if (!input.files || !input.files[0]) {
+                alert("Please upload an image first.");
+                return;
+            }
+            if (!message) {
+                alert("Please enter a message to hide.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imgData.data;
+
+                    // Convert message to binary
+                    let binaryMessage = "";
+                    for (let i = 0; i < message.length; i++) {
+                        let binaryChar = message.charCodeAt(i).toString(2);
+                        binaryMessage += "00000000".slice(binaryChar.length) + binaryChar;
+                    }
+                    // Add null terminator (00000000) to signal end of message
+                    binaryMessage += "00000000";
+
+                    if (binaryMessage.length > data.length / 4) {
+                        alert("Message is too long for this image!");
+                        return;
+                    }
+
+                    let digitIndex = 0;
+                    for (let i = 0; i < data.length; i += 4) {
+                        if (digitIndex < binaryMessage.length) {
+                            // Modify Red channel LSB
+                            data[i] = (data[i] & ~1) | parseInt(binaryMessage[digitIndex]);
+                            digitIndex++;
+                        }
+                        if (digitIndex < binaryMessage.length) {
+                            // Modify Green channel LSB
+                            data[i + 1] = (data[i + 1] & ~1) | parseInt(binaryMessage[digitIndex]);
+                            digitIndex++;
+                        }
+                        if (digitIndex < binaryMessage.length) {
+                            // Modify Blue channel LSB
+                            data[i + 2] = (data[i + 2] & ~1) | parseInt(binaryMessage[digitIndex]);
+                            digitIndex++;
+                        }
+                    }
+
+                    ctx.putImageData(imgData, 0, 0);
+
+                    // Download
+                    const link = document.createElement('a');
+                    link.download = 'stego_image.png';
+                    link.href = canvas.toDataURL();
+                    link.click();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function decode() {
+            const input = document.getElementById('upload-decode');
+            const canvas = document.getElementById('canvas-decode');
+            const ctx = canvas.getContext('2d');
+            const outputDiv = document.getElementById('decoded-output');
+            const outputText = document.getElementById('decoded-text');
+
+            if (!input.files || !input.files[0]) {
+                alert("Please upload an image to decode.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    const data = imgData.data;
+
+                    let binaryMessage = "";
+                    let charBinary = "";
+
+                    for (let i = 0; i < data.length; i += 4) {
+                        // Read R, G, B LSBs
+                        const colors = [data[i], data[i + 1], data[i + 2]];
+
+                        for (let c of colors) {
+                            charBinary += (c & 1).toString();
+
+                            if (charBinary.length === 8) {
+                                if (charBinary === "00000000") {
+                                    // Null terminator found
+                                    outputDiv.classList.remove('hidden');
+                                    outputText.innerText = binaryMessage;
+                                    return;
+                                }
+                                binaryMessage += String.fromCharCode(parseInt(charBinary, 2));
+                                charBinary = "";
+                            }
+                        }
+                    }
+
+                    // If no null terminator found
+                    outputDiv.classList.remove('hidden');
+                    outputText.innerText = binaryMessage || "No hidden message found or image corrupted.";
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</body>
+
+</html>

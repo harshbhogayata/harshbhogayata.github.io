@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Network Monitor | Harsh Bhogayata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl">
+        <a href="../projects.html" class="text-gray-500 hover:text-white mb-8 inline-block font-mono"><i
+                class="fas fa-arrow-left mr-2"></i>Back to Projects</a>
+
+        <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white font-mono mb-4">Network Traffic Monitor</h1>
+            <div class="flex flex-wrap gap-4 text-sm font-mono">
+                <span class="bg-green-900/30 text-green-400 px-3 py-1 rounded border border-green-500/30">Python</span>
+                <span class="bg-blue-900/30 text-blue-400 px-3 py-1 rounded border border-blue-500/30">Scapy</span>
+                <span
+                    class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded border border-purple-500/30">Wireshark</span>
+            </div>
+        </header>
+
+        <!-- Hero Image Placeholder -->
+        <div
+            class="w-full h-64 md:h-96 bg-gray-900 rounded-xl border border-gray-800 mb-12 flex items-center justify-center overflow-hidden relative group">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+            <i class="fas fa-network-wired text-6xl text-gray-700 group-hover:text-green-500 transition-colors"></i>
+            <p class="absolute bottom-4 left-4 text-gray-400 font-mono text-sm">Figure 1: Dashboard Interface</p>
+        </div>
+
+        <article class="prose prose-invert prose-lg max-w-none">
+            <h2 class="text-green-400 font-mono">Overview</h2>
+            <p>
+                This project was designed to analyze local network traffic in real-time, identifying potential anomalies
+                and visualizing data flow. It serves as a lightweight IDS (Intrusion Detection System) for home
+                networks.
+            </p>
+
+            <h2 class="text-green-400 font-mono">Key Features</h2>
+            <ul class="list-disc pl-6 space-y-2 text-gray-400">
+                <li>Real-time packet capturing using <strong>Scapy</strong>.</li>
+                <li>Protocol distribution analysis (TCP/UDP/ICMP).</li>
+                <li>Alert system for suspicious port scanning activities.</li>
+                <li>Log export to CSV for further analysis.</li>
+            </ul>
+
+            <h2 class="text-green-400 font-mono">Technical Implementation</h2>
+            <p>
+                The core logic revolves around a packet sniffer loop. Here is a snippet of the capture logic:
+            </p>
+
+            <div class="bg-gray-900 p-6 rounded-lg border border-gray-800 my-6 font-mono text-sm overflow-x-auto">
+                <pre><code class="language-python">def packet_callback(packet):
+    if packet.haslayer(IP):
+        src_ip = packet[IP].src
+        dst_ip = packet[IP].dst
+        protocol = packet[IP].proto
+        
+        # Check for suspicious activity
+        if protocol == 6: # TCP
+            check_port_scan(src_ip, packet[TCP].dport)
+
+        log_packet(src_ip, dst_ip, protocol)
+</code></pre>
+            </div>
+
+            <h2 class="text-green-400 font-mono">Challenges & Solutions</h2>
+            <p>
+                <strong>Performance:</strong> Initially, the packet processing was blocking the main thread. I
+                implemented Python's <code>threading</code> module to handle analysis asynchronously, ensuring no
+                packets were dropped during high traffic.
+            </p>
+
+            <h2 class="text-green-400 font-mono">Future Improvements</h2>
+            <p>
+                I plan to add a web-based dashboard using Flask to visualize the traffic graphs in real-time, replacing
+                the current CLI output.
+            </p>
+        </article>
+
+        <div class="mt-12 pt-8 border-t border-gray-800 flex gap-4">
+            <a href="#"
+                class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center">
+                <i class="fab fa-github mr-2"></i> View Source
+            </a>
+            <a href="#"
+                class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center">
+                <i class="fas fa-play mr-2"></i> Live Demo
+            </a>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

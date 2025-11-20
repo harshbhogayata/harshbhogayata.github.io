@@ -1,0 +1,47 @@
+:root {
+    /* Core Colors */
+    --bg-color: #050505;
+    --bg-secondary: #0a0f14;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    
+    /* Accent Colors */
+    --accent-primary: #00ff88; /* Cyber Green */
+    --accent-secondary: #00ccff; /* Cyber Blue */
+    --accent-alert: #ff3366; /* Cyber Red */
+    
+    /* Effects */
+    --glow-primary: 0 0 10px rgba(0, 255, 136, 0.5);
+    --glow-secondary: 0 0 10px rgba(0, 204, 255, 0.5);
+    --border-color: rgba(0, 255, 136, 0.2);
+    
+    /* Fonts */
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}

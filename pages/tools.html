@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Tools | Harsh Bhogayata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 relative z-10">
+        <h1 class="text-4xl font-bold text-white font-mono mb-12 border-b border-green-500/20 pb-4">
+            <span class="text-cyan-400">./</span>active_tools
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Tool 1 -->
+            <a href="tools/password-checker.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-cyan-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+                <div
+                    class="w-12 h-12 bg-cyan-900/30 rounded-lg flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-key text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Password Entropy</h3>
+                <p class="text-gray-400 text-sm">Analyze password strength using entropy calculation and crack-time
+                    estimation.</p>
+            </a>
+
+            <!-- Tool 2 -->
+            <a href="tools/hash-generator.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-green-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(34,197,94,0.15)]">
+                <div
+                    class="w-12 h-12 bg-green-900/30 rounded-lg flex items-center justify-center text-green-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-hashtag text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Hash Generator</h3>
+                <p class="text-gray-400 text-sm">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes locally in your
+                    browser.</p>
+            </a>
+
+            <!-- Tool 3 -->
+            <a href="tools/subnet-calc.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-purple-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+                <div
+                    class="w-12 h-12 bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-network-wired text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Subnet Calculator</h3>
+                <p class="text-gray-400 text-sm">Calculate network ranges, broadcast addresses, and usable hosts from
+                    CIDR.</p>
+            </a>
+
+            <!-- Tool 4 -->
+            <a href="tools/encoder.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-yellow-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(234,179,8,0.15)]">
+                <div
+                    class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center text-yellow-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-code text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Encoder / Decoder</h3>
+                <p class="text-gray-400 text-sm">Convert text between Base64, Hex, URL, and Rot13 formats instantly.</p>
+            </a>
+
+            <!-- Tool 5 -->
+            <a href="tools/sqli-gen.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-red-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(239,68,68,0.15)]">
+                <div
+                    class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center text-red-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-database text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">SQLi Payloads</h3>
+                <p class="text-gray-400 text-sm">Common SQL Injection payloads for educational testing and CTFs.</p>
+            </a>
+
+            <!-- Tool 6 -->
+            <a href="tools/xss-gen.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-orange-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(249,115,22,0.15)]">
+                <div
+                    class="w-12 h-12 bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-bug text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">XSS Payloads</h3>
+                <p class="text-gray-400 text-sm">Generate Cross-Site Scripting payloads for testing web application
+                    defenses.</p>
+            </a>
+
+            <!-- Tool 7 -->
+            <a href="tools/mac-lookup.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-blue-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+                <div
+                    class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-search text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">MAC Lookup</h3>
+                <p class="text-gray-400 text-sm">Identify device manufacturers from MAC addresses (OUI lookup).</p>
+            </a>
+
+            <!-- Tool 8 -->
+            <a href="tools/chmod-calc.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-pink-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(236,72,153,0.15)]">
+                <div
+                    class="w-12 h-12 bg-pink-900/30 rounded-lg flex items-center justify-center text-pink-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-calculator text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Chmod Calculator</h3>
+                <p class="text-gray-400 text-sm">Visual Linux permission calculator for file/directory permissions.</p>
+            </a>
+
+            <!-- Tool 9 -->
+            <a href="tools/regex-tester.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-indigo-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+                <div
+                    class="w-12 h-12 bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-code-branch text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Regex Tester</h3>
+                <p class="text-gray-400 text-sm">Test and validate regular expressions in real-time.</p>
+            </a>
+
+            <!-- Tool 10 -->
+            <a href="tools/ports.html"
+                class="group block p-6 bg-gray-900 border border-gray-800 hover:border-teal-500 rounded-xl transition-all hover:shadow-[0_0_20px_rgba(20,184,166,0.15)]">
+                <div
+                    class="w-12 h-12 bg-teal-900/30 rounded-lg flex items-center justify-center text-teal-400 mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-list-ol text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 font-mono">Port Reference</h3>
+                <p class="text-gray-400 text-sm">Searchable database of common TCP/UDP ports and services.</p>
+            </a>
+
+            <!-- Tool 11: Steganography -->
+            <a href="tools/stego.html"
+                class="group relative bg-gray-900/50 border border-cyan-500/20 hover:border-cyan-500/60 p-6 rounded-xl backdrop-blur-sm transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.1)] overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity">
+                    <i class="fas fa-external-link-alt text-cyan-400"></i>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-lg font-bold text-white font-mono mb-1 group-hover:text-cyan-400 transition-colors">
+                            Steganography Lab</h3>
+                        <p class="text-gray-500 text-xs leading-relaxed">Hide secrets inside images (LSB).</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tool 12: Log Analyzer -->
+            <a href="tools/log-analyzer.html"
+                class="group relative bg-gray-900/50 border border-red-500/20 hover:border-red-500/60 p-6 rounded-xl backdrop-blur-sm transition-all hover:shadow-[0_0_20px_rgba(239,68,68,0.1)] overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity">
+                    <i class="fas fa-external-link-alt text-red-400"></i>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-10 h-10 bg-red-500/10 rounded flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-lg font-bold text-white font-mono mb-1 group-hover:text-red-400 transition-colors">
+                            Log Analyzer</h3>
+                        <p class="text-gray-500 text-xs leading-relaxed">SOC Dashboard & Threat Detection.</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

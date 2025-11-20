@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnet Calculator | Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-3xl">
+        <a href="../tools.html" class="text-gray-500 hover:text-white mb-8 inline-block font-mono"><i
+                class="fas fa-arrow-left mr-2"></i>Back to Tools</a>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 shadow-2xl">
+            <h1 class="text-2xl font-bold text-white font-mono mb-6 flex items-center">
+                <i class="fas fa-network-wired text-purple-400 mr-3"></i>Subnet Calculator
+            </h1>
+
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="col-span-2">
+                    <label class="block text-sm font-mono text-purple-400 mb-2">IP Address</label>
+                    <input type="text" id="ip-input" value="192.168.1.1"
+                        class="w-full bg-black border border-gray-700 rounded p-3 text-white font-mono focus:border-purple-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-mono text-purple-400 mb-2">CIDR</label>
+                    <select id="cidr-input"
+                        class="w-full bg-black border border-gray-700 rounded p-3 text-white font-mono focus:border-purple-500 focus:outline-none">
+                        <!-- JS will populate this -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-black/50 rounded-lg border border-gray-800 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <tbody class="divide-y divide-gray-800">
+                        <tr>
+                            <td class="p-4 text-gray-500 font-mono text-sm">Network Address</td>
+                            <td class="p-4 text-white font-mono" id="network-addr">...</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-gray-500 font-mono text-sm">Broadcast Address</td>
+                            <td class="p-4 text-white font-mono" id="broadcast-addr">...</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-gray-500 font-mono text-sm">Subnet Mask</td>
+                            <td class="p-4 text-white font-mono" id="subnet-mask">...</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-gray-500 font-mono text-sm">Usable Hosts</td>
+                            <td class="p-4 text-purple-400 font-bold font-mono" id="usable-hosts">...</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 text-gray-500 font-mono text-sm">Host Range</td>
+                            <td class="p-4 text-white font-mono" id="host-range">...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        const ipInput = document.getElementById('ip-input');
+        const cidrInput = document.getElementById('cidr-input');
+
+        // Populate CIDR
+        for (let i = 1; i <= 32; i++) {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.text = '/' + i;
+            if (i === 24) opt.selected = true;
+            cidrInput.appendChild(opt);
+        }
+
+        function calculate() {
+            const ip = ipInput.value;
+            const cidr = parseInt(cidrInput.value);
+
+            if (!validateIP(ip)) return;
+
+            const ipBin = ipToBin(ip);
+            const maskBin = '1'.repeat(cidr).padEnd(32, '0');
+            const netBin = (parseInt(ipBin, 2) & parseInt(maskBin, 2)) >>> 0;
+            const broadBin = (netBin | (~parseInt(maskBin, 2) >>> 0)) >>> 0;
+
+            const netAddr = binToIp(netBin);
+            const broadAddr = binToIp(broadBin);
+            const maskAddr = binToIp(parseInt(maskBin, 2));
+
+            const hosts = Math.pow(2, 32 - cidr) - 2;
+
+            const firstHost = binToIp(netBin + 1);
+            const lastHost = binToIp(broadBin - 1);
+
+            document.getElementById('network-addr').textContent = netAddr;
+            document.getElementById('broadcast-addr').textContent = broadAddr;
+            document.getElementById('subnet-mask').textContent = maskAddr;
+            document.getElementById('usable-hosts').textContent = hosts > 0 ? hosts.toLocaleString() : 0;
+            document.getElementById('host-range').textContent = hosts > 0 ? `${firstHost} - ${lastHost}` : 'N/A';
+        }
+
+        function validateIP(ip) {
+            return /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip);
+        }
+
+        function ipToBin(ip) {
+            return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet), 0) >>> 0;
+        }
+
+        function binToIp(bin) {
+            return [
+                (bin >>> 24) & 255,
+                (bin >>> 16) & 255,
+                (bin >>> 8) & 255,
+                bin & 255
+            ].join('.');
+        }
+
+        ipInput.addEventListener('input', calculate);
+        cidrInput.addEventListener('change', calculate);
+
+        calculate(); // Init
+    </script>
+</body>
+
+</html>

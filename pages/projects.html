@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Harsh Bhogayata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-black text-gray-300">
+
+    <main class="pt-32 pb-20 container mx-auto px-6 max-w-6xl relative z-10">
+        <h1 class="text-4xl font-bold text-white font-mono mb-12 border-b border-green-500/20 pb-4">
+            <span class="text-green-500">./</span>operations_log
+        </h1>
+
+        <div class="grid grid-cols-1 gap-12">
+
+            <!-- Live Project 1: Password Analyzer -->
+            <article
+                class="bg-gray-900/80 border border-green-500/30 rounded-xl overflow-hidden shadow-lg shadow-green-500/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded-full border border-green-500/30">Live
+                                Module</span>
+                            <span
+                                class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-mono rounded-full border border-blue-500/30">JavaScript</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4 font-mono">Password Entropy Engine</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            A client-side cryptographic analysis tool that evaluates password strength using
+                            information entropy theory.
+                            It calculates the search space size and estimates crack times against various attack
+                            vectors (Brute Force, GPU Arrays).
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tools/password-checker.html"
+                                class="px-6 py-3 bg-green-600 hover:bg-green-500 text-black font-bold rounded transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Launch Module
+                            </a>
+                            <a href="https://github.com/harshbhogayata"
+                                class="px-6 py-3 border border-gray-700 hover:border-white text-gray-300 hover:text-white rounded transition-colors flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-8 flex items-center justify-center border-l border-gray-800">
+                        <!-- Mini Preview of the Tool -->
+                        <div
+                            class="w-full max-w-md bg-gray-900 border border-gray-700 rounded-lg p-6 opacity-80 hover:opacity-100 transition-opacity">
+                            <div class="h-2 bg-gray-700 rounded-full mb-4 overflow-hidden">
+                                <div class="h-full bg-green-500 w-3/4"></div>
+                            </div>
+                            <div class="font-mono text-green-400 text-sm mb-2">Entropy: 58.2 bits</div>
+                            <div class="font-mono text-gray-500 text-xs">Crack Time: ~4 centuries</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Live Project 2: Network Subnet Calculator -->
+            <article
+                class="bg-gray-900/80 border border-purple-500/30 rounded-xl overflow-hidden shadow-lg shadow-purple-500/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded-full border border-green-500/30">Live
+                                Module</span>
+                            <span
+                                class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-mono rounded-full border border-purple-500/30">Networking</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4 font-mono">CIDR Subnet Architect</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Advanced network segmentation tool. Converts CIDR notation into usable IP ranges, subnet
+                            masks, and broadcast addresses.
+                            Essential for network architects and sysadmins to plan infrastructure without manual
+                            binary math.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tools/subnet-calc.html"
+                                class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Launch Module
+                            </a>
+                            <a href="https://github.com/harshbhogayata"
+                                class="px-6 py-3 border border-gray-700 hover:border-white text-gray-300 hover:text-white rounded transition-colors flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-8 flex items-center justify-center border-l border-gray-800">
+                        <div class="font-mono text-sm text-gray-400">
+                            <div class="mb-2"><span class="text-purple-400">IP:</span> 192.168.1.0/24</div>
+                            <div class="mb-2"><span class="text-purple-400">Mask:</span> 255.255.255.0</div>
+                            <div class="mb-2"><span class="text-purple-400">Hosts:</span> 254</div>
+                            <div class="mb-2"><span class="text-purple-400">Class:</span> C (Private)</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Live Project 3: Secure Hash Generator -->
+            <article
+                class="bg-gray-900/80 border border-blue-500/30 rounded-xl overflow-hidden shadow-lg shadow-blue-500/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded-full border border-green-500/30">Live
+                                Module</span>
+                            <span
+                                class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-mono rounded-full border border-blue-500/30">Cryptography</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4 font-mono">CryptoHash Engine</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Browser-based hashing utility utilizing the Web Crypto API. Supports MD5, SHA-1,
+                            SHA-256, and SHA-512 algorithms.
+                            Zero-knowledge architecture ensures data never leaves the client side.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tools/hash-generator.html"
+                                class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Launch Module
+                            </a>
+                            <a href="https://github.com/harshbhogayata"
+                                class="px-6 py-3 border border-gray-700 hover:border-white text-gray-300 hover:text-white rounded transition-colors flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-8 flex items-center justify-center border-l border-gray-800">
+                        <div class="w-full break-all font-mono text-xs text-gray-500">
+                            <span class="text-blue-400">SHA-256:</span><br>
+                            5e884898da28047151d0e56f8dc62927<br>
+                            73603d0d6aabbdd62a11ef721d1542d8
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Live Project 4: Steganography Lab -->
+            <article
+                class="bg-gray-900/80 border border-cyan-500/30 rounded-xl overflow-hidden shadow-lg shadow-cyan-500/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded-full border border-green-500/30">Live
+                                Module</span>
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs font-mono rounded-full border border-cyan-500/30">Forensics</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4 font-mono">Steganography Lab</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Digital forensics tool implementing Least Significant Bit (LSB) steganography.
+                            Allows users to securely hide and extract secret messages within image files directly in the
+                            browser.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tools/stego.html"
+                                class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Launch Module
+                            </a>
+                            <a href="https://github.com/harshbhogayata"
+                                class="px-6 py-3 border border-gray-700 hover:border-white text-gray-300 hover:text-white rounded transition-colors flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-8 flex items-center justify-center border-l border-gray-800">
+                        <div class="font-mono text-xs text-cyan-400 text-center">
+                            [IMAGE DATA]<br>
+                            01010101 11001100<br>
+                            <span class="text-white">HIDDEN: "SECRET"</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Live Project 5: SOC Log Analyzer -->
+            <article
+                class="bg-gray-900/80 border border-red-500/30 rounded-xl overflow-hidden shadow-lg shadow-red-500/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded-full border border-green-500/30">Live
+                                Module</span>
+                            <span
+                                class="px-3 py-1 bg-red-500/20 text-red-400 text-xs font-mono rounded-full border border-red-500/30">Threat
+                                Intel</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4 font-mono">SOC Log Analyzer</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Automated threat detection system. Parses raw server logs (Apache/Nginx) to identify attack
+                            signatures
+                            like SQL Injection, XSS, and Path Traversal using regex pattern matching.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="tools/log-analyzer.html"
+                                class="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded transition-colors flex items-center">
+                                <i class="fas fa-play mr-2"></i> Launch Module
+                            </a>
+                            <a href="https://github.com/harshbhogayata"
+                                class="px-6 py-3 border border-gray-700 hover:border-white text-gray-300 hover:text-white rounded transition-colors flex items-center">
+                                <i class="fab fa-github mr-2"></i> View Source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-black/50 p-8 flex items-center justify-center border-l border-gray-800">
+                        <div class="font-mono text-xs text-red-400">
+                            ALERT: SQL Injection<br>
+                            SRC: 45.33.22.11<br>
+                            PAYLOAD: ' OR '1'='1
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
