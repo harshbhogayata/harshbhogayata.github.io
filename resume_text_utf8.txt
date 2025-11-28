@@ -1,0 +1,45 @@
+HarshBhogayata
+Cybersecurity Student
+Vadodara, Gujarat
+India
+♂¶obile-alt+919313439465
+/envel⌢peharshmbhogayata@gmail.com
+/gl⌢be-americasharshbhogayata.github.io
+/githubhttps://github.com/harshbhogayata
+/linkedin-inlinkedin.com/in/harshbhogayata
+Professional Summary
+Results-drivenCybersecurity Analystwith a portfolio of custom security tools. Specialized in offensive security,
+network defense, and infrastructure hardening. Proficient in Python scripting for security automation, web penetration
+testing, and digital forensics. Currently pursuing an MCA with a focus on cryptographic protocols and secure network
+architecture.
+Core Competencies
+Security Network Defense, Web Penetration Testing (OWASP), Digital Forensics, Vulnerability Assessment
+Tools Wireshark, Nmap, Metasploit, Burp Suite, Hashcat, FTK Imager
+Development Python (Security Scripting), Bash Automation, HTML/CSS, Git/GitHub
+Concepts Cryptography, TCP/IP Networking, OSINT, Incident Response, Risk Management
+Technical Projects
+2024Password Strength & Policy Auditor,Python/Web
+URL:harshbhogayata.github.io/pages/tools/password-checker.html
+Developed a client-side security tool to analyze password entropy and compliance against NIST guidelines.
+Implements complex regex patterns to detect weak credentials and prevent common dictionary attack
+vectors.
+2024Network Subnet Calculator,Network Utility
+URL:harshbhogayata.github.io/pages/tools/subnet-calc.html
+Designed a CIDR notation calculator to assist in secure network segmentation and optimize IP allocation.
+Features real-time calculation of subnet masks, wildcard masks, and broadcast addresses for infrastructure
+planning.
+2023Cryptographic Hash Generator,Data Integrity
+URL:harshbhogayata.github.io/pages/tools/hash-generator.html
+Built a utility to generate and verify MD5 and SHA-256 hashes. Used for file integrity monitoring (FIM)
+and validating digital evidence during forensic investigations.
+Education
+2024–PresentMaster of Computer Applications (MCA),University Name, Vadodara
+Specialization in Cybersecurity. Researching advanced network defense strategies.
+2020–2023Bachelor of Commerce (B.Com),The Maharaja Sayajirao University of Baroda, Vadodara
+Major in Human Resource Management. Focused on organizational behavior, corporate compliance, and
+strategic personnel management.
+Certifications
+In ProgressGoogle Cybersecurity Professional Certificate,Google, Coursera
+PreparingCompTIA Security+,CompTIA
+Interests
+Focus Zero-day Vulnerability Research, CTF Competitions, Open Source Intelligence (OSINT)

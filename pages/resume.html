@@ -18,23 +18,25 @@
     <main class="pt-32 pb-20 container mx-auto px-6 max-w-4xl relative z-10">
 
         <!-- Header / Title -->
-        <div class="mb-12 border-b border-green-500/20 pb-4 flex justify-between items-end">
+        <div
+            class="mb-12 border-b border-green-500/20 pb-4 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
                 <h1 class="text-4xl font-bold text-white font-mono mb-2">
                     <span class="text-green-500">./</span>resume
                 </h1>
-                <p class="text-gray-400 font-mono text-sm">Harsh Bhogayata</p>
+                <div class="text-gray-400 font-mono text-sm space-y-1">
+                    <p class="text-white font-bold">Harsh Bhogayata</p>
+                    <p>Vadodara, Gujarat, India</p>
+                    <div class="flex flex-wrap gap-4 text-xs">
+                        <a href="tel:+919313439465" class="hover:text-green-400"><i class="fas fa-phone-alt mr-1"></i>
+                            +91 93134 39465</a>
+                        <a href="mailto:harshmbhogayata@gmail.com" class="hover:text-green-400"><i
+                                class="fas fa-envelope mr-1"></i> harshmbhogayata@gmail.com</a>
+                    </div>
+                </div>
             </div>
             <a href="../resume_updated.pdf" download="Harsh_Bhogayata_Resume.pdf"
-                class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-black rounded transition-colors text-sm font-bold font-mono">
-                <i class="fas fa-download"></i> Download PDF
-            </a>
-        </div>
-
-        <!-- Mobile Download Button -->
-        <div class="md:hidden mb-8">
-            <a href="../resume_updated.pdf" download="Harsh_Bhogayata_Resume.pdf"
-                class="w-full flex justify-center items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-black rounded transition-colors text-sm font-bold font-mono">
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-black rounded transition-colors text-sm font-bold font-mono">
                 <i class="fas fa-download"></i> Download PDF
             </a>
         </div>
@@ -46,11 +48,13 @@
             </h2>
             <div class="bg-gray-900/50 border-l-2 border-green-500 p-6 rounded-r-lg backdrop-blur-sm">
                 <p class="text-gray-300 leading-relaxed">
-                    Aspiring Cybersecurity Analyst with a strong foundation in network defense, web application
-                    security, and digital forensics.
-                    Currently pursuing an MCA with a focus on offensive security. Proficient in building security tools
-                    using Python and JavaScript.
-                    Passionate about Red Teaming and securing digital infrastructure against evolving threats.
+                    Results-driven Cybersecurity Analyst with a portfolio of custom security tools. Specialized in
+                    offensive security,
+                    network defense, and infrastructure hardening. Proficient in Python scripting for security
+                    automation, web penetration
+                    testing, and digital forensics. Currently pursuing an MCA with a focus on cryptographic protocols
+                    and secure network
+                    architecture.
                 </p>
             </div>
         </section>
@@ -65,10 +69,11 @@
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-2">
                         <h3 class="text-lg font-bold text-white group-hover:text-green-400 transition-colors">Master of
                             Computer Applications (MCA)</h3>
-                        <span class="text-sm text-gray-500 font-mono">2023 - Present</span>
+                        <span class="text-sm text-gray-500 font-mono">2024 - Present</span>
                     </div>
-                    <p class="text-green-400 font-mono text-sm mb-1">Marwadi University</p>
-                    <p class="text-gray-400 text-sm">Specialization in Cybersecurity & Network Administration</p>
+                    <p class="text-green-400 font-mono text-sm mb-1">Parul University</p>
+                    <p class="text-gray-400 text-sm">Specialization in Cybersecurity. Researching advanced network
+                        defense strategies.</p>
                 </div>
                 <div class="group">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-2">
@@ -76,7 +81,137 @@
                             of Commerce (B.Com)</h3>
                         <span class="text-sm text-gray-500 font-mono">2020 - 2023</span>
                     </div>
-                    <p class="text-green-400 font-mono text-sm mb-1">Saurashtra University</p>
+                    <p class="text-green-400 font-mono text-sm mb-1">The Maharaja Sayajirao University of Baroda</p>
+                    <p class="text-gray-400 text-sm">Major in Human Resource Management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-white font-mono mb-6 flex items-center">
+                <span class="text-green-500 mr-2">></span> TECHNICAL_SKILLS
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Security</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Network
+                            Defense</span>
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Web
+                            Pentesting (OWASP)</span>
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Digital
+                            Forensics</span>
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Vulnerability
+                            Assessment</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Tools</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Wireshark</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Nmap</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Metasploit</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Burp
+                            Suite</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Hashcat</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">FTK
+                            Imager</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Development</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-mono rounded border border-yellow-500/20">Python
+                            (Security Scripting)</span>
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-mono rounded border border-yellow-500/20">Bash
+                            Automation</span>
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-mono rounded border border-yellow-500/20">HTML/CSS</span>
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-mono rounded border border-yellow-500/20">Git/GitHub</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Concepts</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-mono rounded border border-purple-500/20">Cryptography</span>
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-mono rounded border border-purple-500/20">TCP/IP
+                            Networking</span>
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-mono rounded border border-purple-500/20">OSINT</span>
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-mono rounded border border-purple-500/20">Incident
+                            Response</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-white font-mono mb-6 flex items-center">
+                <span class="text-green-500 mr-2">></span> TECHNICAL_PROJECTS
+            </h2>
+
+            <div class="space-y-8">
+                <div
+                    class="bg-gray-900/30 border border-gray-800 p-6 rounded-lg hover:border-green-500/30 transition-all">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="font-bold text-white text-lg">Password Strength & Policy Auditor</h3>
+                        <a href="tools/password-checker.html"
+                            class="text-xs text-blue-400 hover:text-blue-300 font-mono">Launch Tool <i
+                                class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-2">
+                        Developed a client-side security tool to analyze password entropy and compliance against NIST
+                        guidelines.
+                    </p>
+                    <p class="text-xs text-gray-500 font-mono">Tech: Python/Web, Regex</p>
+                </div>
+
+                <div
+                    class="bg-gray-900/30 border border-gray-800 p-6 rounded-lg hover:border-purple-500/30 transition-all">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="font-bold text-white text-lg">Network Subnet Calculator</h3>
+                        <a href="tools/subnet-calc.html"
+                            class="text-xs text-blue-400 hover:text-blue-300 font-mono">Launch Tool <i
+                                class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-2">
+                        Designed a CIDR notation calculator to assist in secure network segmentation and optimize IP
+                        allocation.
+                    </p>
+                    <p class="text-xs text-gray-500 font-mono">Tech: Network Utility, JavaScript</p>
+                </div>
+
+                <div
+                    class="bg-gray-900/30 border border-gray-800 p-6 rounded-lg hover:border-blue-500/30 transition-all">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <h3 class="font-bold text-white text-lg">Cryptographic Hash Generator</h3>
+                        <a href="tools/hash-generator.html"
+                            class="text-xs text-blue-400 hover:text-blue-300 font-mono">Launch Tool <i
+                                class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-2">
+                        Built a utility to generate and verify MD5 and SHA-256 hashes. Used for file integrity
+                        monitoring (FIM).
+                    </p>
+                    <p class="text-xs text-gray-500 font-mono">Tech: Data Integrity, Web Crypto API</p>
                 </div>
             </div>
         </section>
@@ -90,119 +225,34 @@
                 <div
                     class="bg-gray-900/30 border border-gray-800 p-4 rounded hover:border-green-500/30 transition-colors flex items-center gap-3">
                     <i class="fas fa-certificate text-green-500"></i>
-                    <span class="text-gray-300 font-medium">Google Cybersecurity Professional</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">Google Cybersecurity Professional Certificate</p>
+                        <p class="text-xs text-gray-500">Google, Coursera (In Progress)</p>
+                    </div>
                 </div>
                 <div
                     class="bg-gray-900/30 border border-gray-800 p-4 rounded hover:border-yellow-500/30 transition-colors flex items-center gap-3">
                     <i class="fas fa-hourglass-half text-yellow-500"></i>
-                    <span class="text-gray-400 font-medium">CompTIA Security+ (In Progress)</span>
-                </div>
-                <div
-                    class="bg-gray-900/30 border border-gray-800 p-4 rounded hover:border-blue-500/30 transition-colors flex items-center gap-3">
-                    <i class="fas fa-certificate text-blue-500"></i>
-                    <span class="text-gray-300 font-medium">Introduction to Networks (Cisco)</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section class="mb-12">
-            <h2 class="text-xl font-bold text-white font-mono mb-6 flex items-center">
-                <span class="text-green-500 mr-2">></span> TECHNICAL_SKILLS
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Security Domains</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Network
-                            Security</span>
-                        <span
-                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Web
-                            Pentesting</span>
-                        <span
-                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Digital
-                            Forensics</span>
-                        <span
-                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs font-mono rounded border border-green-500/20">Cryptography</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-mono text-sm text-gray-500 mb-4 uppercase tracking-wider">Tools & Technologies</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Burp
-                            Suite</span>
-                        <span
-                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Wireshark</span>
-                        <span
-                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Nmap</span>
-                        <span
-                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-mono rounded border border-blue-500/20">Metasploit</span>
-                        <span
-                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-mono rounded border border-yellow-500/20">Python</span>
-                        <span
-                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-mono rounded border border-purple-500/20">Linux
-                            (Kali)</span>
+                    <div>
+                        <p class="text-gray-300 font-medium">CompTIA Security+</p>
+                        <p class="text-xs text-gray-500">CompTIA (Preparing)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Interests -->
         <section>
             <h2 class="text-xl font-bold text-white font-mono mb-6 flex items-center">
-                <span class="text-green-500 mr-2">></span> KEY_PROJECTS
+                <span class="text-green-500 mr-2">></span> INTERESTS
             </h2>
-
-            <div class="space-y-8">
-                <div
-                    class="bg-gray-900/30 border border-gray-800 p-6 rounded-lg hover:border-green-500/30 transition-all">
-                    <div class="flex justify-between items-baseline mb-2">
-                        <h3 class="font-bold text-white text-lg">Cybersecurity Portfolio & Live Tools</h3>
-                        <a href="https://harshbhogayata.com"
-                            class="text-xs text-blue-400 hover:text-blue-300 font-mono">harshbhogayata.com <i
-                                class="fas fa-external-link-alt ml-1"></i></a>
-                    </div>
-                    <p class="text-sm text-gray-400 mb-4">
-                        Designed and developed a fully interactive "Cyber Dashboard" portfolio featuring client-side
-                        security tools.
-                    </p>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <span class="text-green-500 mt-1">➜</span>
-                            <span>Implemented <strong>Password Entropy Analyzer</strong> using Information Theory
-                                concepts.</span>
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <span class="text-green-500 mt-1">➜</span>
-                            <span>Built a <strong>CIDR Subnet Calculator</strong> for network segmentation
-                                planning.</span>
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <span class="text-green-500 mt-1">➜</span>
-                            <span>Created a <strong>Steganography Lab</strong> for browser-based image forensics.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div
-                    class="bg-gray-900/30 border border-gray-800 p-6 rounded-lg hover:border-green-500/30 transition-all">
-                    <h3 class="font-bold text-white text-lg mb-2">Network Traffic Monitor (Python)</h3>
-                    <p class="text-sm text-gray-400 mb-4">
-                        Developed a lightweight packet sniffer and analyzer using Python's Scapy library.
-                    </p>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <span class="text-green-500 mt-1">➜</span>
-                            <span>Real-time detection of suspicious port scanning activities (SYN Scans).</span>
-                        </li>
-                        <li class="flex items-start gap-2 text-sm text-gray-300">
-                            <span class="text-green-500 mt-1">➜</span>
-                            <span>Automated alert generation for potential DoS attack patterns.</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-gray-900 border border-gray-700 rounded-full text-sm text-gray-300">Zero-day
+                    Vulnerability Research</span>
+                <span class="px-4 py-2 bg-gray-900 border border-gray-700 rounded-full text-sm text-gray-300">CTF
+                    Competitions</span>
+                <span class="px-4 py-2 bg-gray-900 border border-gray-700 rounded-full text-sm text-gray-300">Open
+                    Source Intelligence (OSINT)</span>
             </div>
         </section>
 
